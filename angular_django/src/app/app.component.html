@@ -1,0 +1,40 @@
+<form>
+  <div>
+    <label for="name">name</label>
+    <input type="text" name="name" id="name" placeholder="enter your name" class="form-control" [(ngModel)]="name">
+
+  </div>
+  <div>
+    <label for="adress">adress</label>
+    <input type="text" name="adress" id="adress" placeholder="enter adress" class="form-control" [(ngModel)]="adress">
+  </div>
+  <div>
+    <label for="fee">fee</label>
+    <input type="number" name="fee" id="fee" placeholder="enter fee" class="form-control" [(ngModel)]="fee">
+
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primary" (click)="saverecords()">save</button>
+    <button type="submit" class="btn btn-danger" (click)="setupdaterecords()">update</button>
+  </div>
+
+</form>
+<table>
+  <tr>
+    <th>name</th>
+    <th>adress</th>
+    <th>fee</th>
+  </tr>
+  <tr *ngFor="let studentitem of studentarray">
+    <td>{{studentitem.name}}</td>
+    <td>{{studentitem.adress}}</td>
+    <td>{{studentitem.fee}}</td>
+    <td><button type="button" class="btn btn-success"(click)="setdelete(studentitem)">delete</button></td>
+    <td><button type="button" class="btn btn-primary"(click)="setupdate(studentitem)">edit</button></td>
+
+
+  </tr>
+  
+  
+</table>
+<router-outlet></router-outlet>
